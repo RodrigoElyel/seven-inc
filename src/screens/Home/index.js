@@ -13,6 +13,9 @@ import Card from '../../components/Card'
 import { Asset } from 'expo-asset';
 import colors from '../../config/colors'
 
+// ICONS
+import { FAB } from 'react-native-paper';
+
 
 const index = ({ navigation }) => {
 
@@ -147,12 +150,6 @@ const index = ({ navigation }) => {
 
                 />
 
-                <TouchableOpacity onPress={() => console.log("novo usuário")}>
-                    <View style={styles.cadastrar}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 20, color: colors.escuro }}>Cadastrar</Text>
-                    </View>
-                </TouchableOpacity>
-
 
                 <ScrollView >
                     {objeto.map((item) =>
@@ -167,9 +164,14 @@ const index = ({ navigation }) => {
 
 
 
-
-                {/* <EmployeesList objeto={objeto} /> */}
             </View>
+            <FAB
+                style={styles.fab}
+                // label="Employee"
+                icon="plus"
+                color="white"
+                onPress={() => console.log("novo usuário")}
+            />
         </Screen>
     )
 }
@@ -179,7 +181,7 @@ export default index
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: colors.cinza,
         alignItems: 'center',
         // justifyContent: 'center',
     },
@@ -188,13 +190,20 @@ const styles = StyleSheet.create({
         height: 110,
         backgroundColor: colors.cinza
     },
-    cadastrar: { 
+    cadastrar: {
         margin: 10,
         height: 40,
         width: "100%",
         alignSelf: 'center',
         alignItems: 'center',
-        justifyContent: 'center', 
-        backgroundColor: colors.azulClarinho, 
-        borderRadius: 7 }
+        justifyContent: 'center',
+        backgroundColor: colors.azulClarinho,
+        borderRadius: 7
+    },
+    fab: {
+        position: 'absolute',
+        right: 10,
+        bottom: 20,
+        backgroundColor: colors.azulClarinho
+    },
 })

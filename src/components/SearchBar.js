@@ -1,12 +1,12 @@
 import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 
 // CONFIG
 import colors from '../config/colors'
 
 // ICONS
 import { FontAwesome } from '@expo/vector-icons';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 
 const SearchBar = ({ title, value, setValue, keyboard }) => {
 

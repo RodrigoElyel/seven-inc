@@ -37,7 +37,7 @@ const SearchBar = ({ title, value, setValue }) => {
 
         } else {
             //seta com o vetor original
-            setValue(objeto)
+            setValue(lista)
         }
     }
 

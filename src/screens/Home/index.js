@@ -24,9 +24,13 @@ const index = ({ navigation }) => {
     const { lista, setLista } = React.useContext(DadosContext)
     const [filtrados, setFiltrados] = React.useState(lista)
 
+    const atualizar = () => {
+        setFiltrados(lista)
+    }
+
 
     React.useEffect(() => {
-        
+       atualizar() 
     }, [lista])
  
 
@@ -42,7 +46,7 @@ const index = ({ navigation }) => {
                 />
 
                 <ScrollView >
-                    {lista.map((item) =>
+                    {filtrados.map((item) =>
 
                         <View key={item.id} style={styles.containerCard}>
                             <TouchableOpacity onPress={() => navigation.navigate('Details', { item })}>

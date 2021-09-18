@@ -53,9 +53,9 @@ const SearchBar = ({ title, value, setValue }) => {
                 placeholderTextColor={colors.escuro}
                 onChangeText={value => search(value)}
             />
-            <TouchableOpacity onPress={() => console.log("Buscar")}>
+            {/* <TouchableOpacity onPress={() => console.log("Buscar")}>
                 <FontAwesome name="search" size={25} color={colors.azulClarinho} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
 
         </View>
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     },
     inputText: {
         height: "80%",
-        width: "80%",
-        marginLeft: 20,
+        width: "90%",
+        // marginLeft: 20,
         fontSize: 18
     }
 })

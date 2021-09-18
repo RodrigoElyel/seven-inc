@@ -10,6 +10,7 @@ import colors from '../../config/colors'
 
 // ICONS
 import { MaterialIcons } from '@expo/vector-icons';
+import { FAB } from 'react-native-paper';
 
 // DADOS CONTEXT
 import { DadosContext } from '../../DadosContext'
@@ -71,13 +72,14 @@ const index = ({ route, navigation }) => {
 
                     <Image
                         resizeMode="contain"
-                        style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center'}}
+                        style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center' }}
                         source={{
                             uri: item.image
                         }}
                     />
 
                     <ContainerInfo
+                        mask={null}
                         edit={editar}
                         title="Name"
                         value={item.name}
@@ -86,21 +88,24 @@ const index = ({ route, navigation }) => {
                     />
 
                     <ContainerInfo
+                        mask="data"
                         edit={editar}
-                        title="Data de Nascimento"
+                        title="Nascimento"
                         value={item.bornDate}
                         setValue={setBornDate}
-                        keyboard="numbers-and-punctuation"
+                        keyboard="numeric"
                     />
                     <ContainerInfo
+                        mask="dinheiro"
                         edit={editar}
                         title="Salário"
-                        value={item.salary.toString()}
+                        value={item.salary}
                         setValue={setSalary}
                         keyboard="numeric"
                     />
 
                     <ContainerInfo
+                        mask={null}
                         edit={editar}
                         title="Cargo"
                         value={item.position}
@@ -121,7 +126,12 @@ const index = ({ route, navigation }) => {
 
                 <View style={{ position: 'absolute', top: 20, right: 20 }}>
                     <TouchableOpacity onPress={() => setEditar(!editar)}>
-                        <MaterialIcons name="edit" size={35} color="black" />
+                        {editar === true
+                            ?
+                            <Text style={{fontWeight: 'bold', fontSize: 18}}>Desfazer</Text>
+                            :
+                            <MaterialIcons name="edit" size={35} color="black" />
+                        }
                     </TouchableOpacity>
                 </View>
 

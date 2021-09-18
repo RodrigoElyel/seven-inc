@@ -38,9 +38,9 @@ const index = ({ navigation }) => {
 
         <Screen >
             <View style={styles.container}>
-                {/* <Pressable style={{height: "100%"}} onPress={Keyboard.dismiss}> */}
+
                 <SearchBar
-                    title="Buscar ..."
+                    title="Buscar ID"
                     setValue={setFiltrados}
 
                 />

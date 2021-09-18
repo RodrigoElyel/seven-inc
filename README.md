@@ -13,4 +13,8 @@ Na raiz do projeto, execute:
 Para Executar, execute o comando:
 > `expo start`
 
+# Verifique nossa WIKI
+https://github.com/RodrigoElyel/seven-inc/wiki
+
+# Verifique nossa Realease
 

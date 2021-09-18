@@ -31,7 +31,7 @@ const index = ({ navigation }) => {
 
     React.useEffect(() => {
        atualizar() 
-    }, [])
+    }, [lista])
  
 
     return (

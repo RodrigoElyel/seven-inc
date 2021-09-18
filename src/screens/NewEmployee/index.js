@@ -14,48 +14,44 @@ import { MaterialIcons } from '@expo/vector-icons';
 // DADOS CONTEXT
 import { DadosContext } from '../../DadosContext'
 
+// IMPORT ASSETS
+import { Asset } from 'expo-asset';
 
-const index = ({ route, navigation }) => {
+
+const index = ({ navigation }) => {
 
     const { lista, setLista } = React.useContext(DadosContext)
 
-    const { item } = route.params
-    const [editar, setEditar] = React.useState(false)
     const [name, setName] = React.useState('')
     const [bornDate, setBornDate] = React.useState('')
     const [salary, setSalary] = React.useState('')
     const [position, setPosition] = React.useState('')
+    const imageUri = Asset.fromModule(require('../../../assets/batman.png')).uri
 
 
     const salvar = () => {
 
+
+        min = Math.ceil(20);
+        max = Math.floor(1000);
+        id = Math.floor(Math.random() * (max - min)) + min;
+
+
         var valor = salary.replace(",", ".")
 
-        setLista([...lista.filter(op => op.id !== item.id), {
-            id: item.id,
+        setLista([...lista, {
+            id: id,
             name: name,
             bornDate: bornDate,
             salary: salary,
             position: position,
-            image: item.image
+            image: imageUri
         }])
 
 
-        alert("Alteração Realizada!")
+        alert("Cadastro Realizado!")
         navigation.goBack()
 
-
-    }
-
-    const excluir = () => {
-
-        var valor = salary.replace(",", ".")
-
-        setLista([...lista.filter(op => op.id !== item.id)])
-
-
-        alert("Exclusão Realizada!")
-        navigation.goBack()
 
     }
 
@@ -66,64 +62,56 @@ const index = ({ route, navigation }) => {
 
             <View style={styles.container}>
 
-
                 <KeyboardAvoidingView style={styles.containerInfo} behavior="position" enabled>
 
                     <Image
                         resizeMode="contain"
-                        style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center'}}
+                        style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center' }}
                         source={{
-                            uri: item.image
+                            uri: imageUri
                         }}
                     />
 
                     <ContainerInfo
-                        edit={editar}
+                        edit={true}
                         title="Name"
-                        value={item.name}
+                        value={name}
                         setValue={setName}
 
                     />
 
                     <ContainerInfo
-                        edit={editar}
+                        edit={true}
                         title="Data de Nascimento"
-                        value={item.bornDate}
+                        value={bornDate}
                         setValue={setBornDate}
                         keyboard="numbers-and-punctuation"
                     />
                     <ContainerInfo
-                        edit={editar}
+                        edit={true}
                         title="Salário"
-                        value={item.salary.toString()}
+                        value={salary.toString()}
                         setValue={setSalary}
                         keyboard="numeric"
                     />
 
                     <ContainerInfo
-                        edit={editar}
+                        edit={true}
                         title="Cargo"
-                        value={item.position}
+                        value={position}
                         setValue={setPosition}
                     />
 
 
-                    <TouchableOpacity onPress={() => { editar === true ? salvar() : excluir() }}>
+                    <TouchableOpacity onPress={() => salvar()}>
                         <View style={{ alignSelf: 'center', marginTop: 40 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 16, color: colors.escuro }}>{editar === true ? "SALVAR" : "EXCLUIR FUNCIONÁRIO"}</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 16, color: colors.escuro }}>CADASTRAR FUNCIONÁRIO</Text>
                         </View>
                     </TouchableOpacity>
 
 
                 </KeyboardAvoidingView>
 
-
-
-                <View style={{ position: 'absolute', top: 20, right: 20 }}>
-                    <TouchableOpacity onPress={() => setEditar(!editar)}>
-                        <MaterialIcons name="edit" size={35} color="black" />
-                    </TouchableOpacity>
-                </View>
 
                 {/* {console.log("1 : " + funcionario.id)}
                 {console.log("2 : " + funcionario.name)}

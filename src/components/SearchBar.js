@@ -5,32 +5,53 @@ import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 // CONFIG
 import colors from '../config/colors'
 
+// DADOS CONTEXT
+import { DadosContext } from '../DadosContext'
+
 // ICONS
 import { FontAwesome } from '@expo/vector-icons';
 
-const SearchBar = ({ title, value, setValue, keyboard }) => {
+const SearchBar = ({ title, value, setValue }) => {
+
+    const { lista } = React.useContext(DadosContext)
+    const [filtrados, setFiltrados] = React.useState(lista)
 
 
     const inputRef = React.useRef(null)
 
-    const colocarFoco = () => {
-        inputRef.current.focus()
-    }
 
+    const search = (value) => {
+
+        if (value) {
+            const filtrados = lista.filter(item => {
+                const minusculo = item.id.toString().toLowerCase()
+
+                const itemMinu = value.toLowerCase()
+
+                return minusculo.indexOf(itemMinu) > -1
+            })
+
+            setFiltrados(filtrados)
+            setValue(filtrados)
+
+
+        } else {
+            //seta com o vetor original
+            setValue(objeto)
+        }
+    }
 
 
     return (
 
 
-        // COLOCAR O ->  <Pressable style={{ height: "100%" }} onPress={Keyboard.dismiss}> EM ALGUM LUGAR
-        <View style={styles.container}>
+        <View style={styles.containerBusca}>
 
             <TextInput
                 style={styles.inputText}
                 placeholder={title}
                 placeholderTextColor={colors.escuro}
-                value={value}
-                onChangeText={value => setValue(value)}
+                onChangeText={value => search(value)}
             />
             <TouchableOpacity onPress={() => console.log("Buscar")}>
                 <FontAwesome name="search" size={25} color={colors.azulClarinho} />
@@ -44,10 +65,10 @@ const SearchBar = ({ title, value, setValue, keyboard }) => {
 export default SearchBar
 
 const styles = StyleSheet.create({
-    container: {
+    containerBusca: {
         height: "5%",
         width: "90%",
-        marginVertical: 15,
+        marginVertical: 30,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',

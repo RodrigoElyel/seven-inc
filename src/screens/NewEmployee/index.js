@@ -73,6 +73,7 @@ const index = ({ navigation }) => {
                     />
 
                     <ContainerInfo
+                        mask={null}
                         edit={true}
                         title="Name"
                         value={name}
@@ -81,13 +82,15 @@ const index = ({ navigation }) => {
                     />
 
                     <ContainerInfo
+                        mask="data"
                         edit={true}
-                        title="Data de Nascimento"
+                        title="Nascimento"
                         value={bornDate}
                         setValue={setBornDate}
-                        keyboard="numbers-and-punctuation"
+                        keyboard="numeric"
                     />
                     <ContainerInfo
+                        mask="dinheiro"
                         edit={true}
                         title="Salário"
                         value={salary.toString()}
@@ -96,6 +99,7 @@ const index = ({ navigation }) => {
                     />
 
                     <ContainerInfo
+                        mask={null}
                         edit={true}
                         title="Cargo"
                         value={position}

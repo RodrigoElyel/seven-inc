@@ -25,7 +25,7 @@ export default function App() {
       id: 1,
       name: 'Rodrigo Elyel Costa Batista',
       bornDate: '01/01/1111',
-      salary: 2500.00,
+      salary: "R$2.500,00",
       position: 'developer junior',
       image: Asset.fromModule(require('./assets/rodrigo.png')).uri
 
@@ -34,7 +34,7 @@ export default function App() {
       id: 2,
       name: 'Junior Sousa',
       bornDate: '02/02/2222',
-      salary: 3000.75,
+      salary: "R$3.000,00",
       position: 'design',
       image: Asset.fromModule(require('./assets/junior.png')).uri
     },
@@ -42,7 +42,7 @@ export default function App() {
       id: 3,
       name: 'Ana Paula',
       bornDate: '03/03/3333',
-      salary: 5000.20,
+      salary: "R$5.000,00",
       position: 'RH',
       image: Asset.fromModule(require('./assets/ana.png')).uri
     },
@@ -50,14 +50,14 @@ export default function App() {
       id: 4,
       name: 'Michael Lesly',
       bornDate: '04/04/4444',
-      salary: 7250.00,
+      salary: "R$7.250,00",
       position: 'developer senior',
       image: Asset.fromModule(require('./assets/michael.png')).uri
     }, {
       id: 5,
       name: 'Rodrigo Elyel Costa Batista',
       bornDate: '01/01/1111',
-      salary: 2500.00,
+      salary: "R$2.500,00",
       position: 'developer junior',
       image: Asset.fromModule(require('./assets/rodrigo.png')).uri
 
@@ -66,7 +66,7 @@ export default function App() {
       id: 6,
       name: 'Junior Sousa',
       bornDate: '02/02/2222',
-      salary: 3000.75,
+      salary: "R$3.000,00",
       position: 'design',
       image: Asset.fromModule(require('./assets/junior.png')).uri
     },
@@ -74,7 +74,7 @@ export default function App() {
       id: 7,
       name: 'Ana Paula',
       bornDate: '03/03/3333',
-      salary: 5000.20,
+      salary: "R$5.000,00",
       position: 'RH',
       image: Asset.fromModule(require('./assets/ana.png')).uri
     },
@@ -82,7 +82,7 @@ export default function App() {
       id: 8,
       name: 'Michael Lesly',
       bornDate: '04/04/4444',
-      salary: 7250.00,
+      salary: "R$7.250,00",
       position: 'developer senior',
       image: Asset.fromModule(require('./assets/michael.png')).uri
     }

@@ -10,6 +10,7 @@ Na raiz do projeto, execute:
 > `npm install`
 
 # Executar projeto
+Para Executar, execute o comando:
 > `expo start`
 
 

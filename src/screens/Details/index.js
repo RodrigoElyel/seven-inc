@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Pressable, Keyboard, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Keyboard, KeyboardAvoidingView, ScrollView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 // COMPONENTS
@@ -7,6 +7,7 @@ import ContainerInfo from '../../components/ContainerInfo'
 
 // CONFIG
 import colors from '../../config/colors'
+import fonts from '../../config/fonts'
 
 // ICONS
 import { MaterialIcons } from '@expo/vector-icons';
@@ -63,87 +64,87 @@ const index = ({ route, navigation }) => {
 
 
     return (
-        <Pressable style={{ height: "100%" }} onPress={Keyboard.dismiss}>
+        <ScrollView style={{backgroundColor: colors.cinza}}>
 
-            <View style={styles.container}>
+            <Pressable style={{ height: "100%" }} onPress={Keyboard.dismiss}>
 
-
-                <KeyboardAvoidingView style={styles.containerInfo} behavior="position" enabled>
-
-                    <Image
-                        resizeMode="contain"
-                        style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center' }}
-                        source={{
-                            uri: item.image
-                        }}
-                    />
-
-                    <ContainerInfo
-                        mask={null}
-                        edit={editar}
-                        title="Name"
-                        value={item.name}
-                        setValue={setName}
-
-                    />
-
-                    <ContainerInfo
-                        mask="data"
-                        edit={editar}
-                        title="Nascimento"
-                        value={item.bornDate}
-                        setValue={setBornDate}
-                        keyboard="numeric"
-                    />
-                    <ContainerInfo
-                        mask="dinheiro"
-                        edit={editar}
-                        title="Salário"
-                        value={item.salary}
-                        setValue={setSalary}
-                        keyboard="numeric"
-                    />
-
-                    <ContainerInfo
-                        mask={null}
-                        edit={editar}
-                        title="Cargo"
-                        value={item.position}
-                        setValue={setPosition}
-                    />
+                <View style={styles.container}>
 
 
-                    <TouchableOpacity onPress={() => { editar === true ? salvar() : excluir() }}>
-                        <View style={{ alignSelf: 'center', marginTop: 40 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 16, color: colors.escuro }}>{editar === true ? "SALVAR" : "EXCLUIR FUNCIONÁRIO"}</Text>
-                        </View>
-                    </TouchableOpacity>
+                    <KeyboardAvoidingView style={styles.containerInfo} behavior="position" enabled>
+
+                        {/* Campo da Imagem */}
+                        <Image
+                            resizeMode="contain"
+                            style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center' }}
+                            source={{
+                                uri: item.image
+                            }}
+                        />
+
+                        {/* Componente que faz a exibições/edições das informações */}
+                        <ContainerInfo
+                            mask={null}
+                            edit={editar}
+                            title="Nome"
+                            value={item.name}
+                            setValue={setName}
+
+                        />
+
+                        <ContainerInfo
+                            mask="data"
+                            edit={editar}
+                            title="Nascimento"
+                            value={item.bornDate}
+                            setValue={setBornDate}
+                            keyboard="numeric"
+                        />
+                        <ContainerInfo
+                            mask="dinheiro"
+                            edit={editar}
+                            title="Salário"
+                            value={item.salary}
+                            setValue={setSalary}
+                            keyboard="numeric"
+                        />
+
+                        <ContainerInfo
+                            mask={null}
+                            edit={editar}
+                            title="Cargo"
+                            value={item.position}
+                            setValue={setPosition}
+                        />
 
 
-                </KeyboardAvoidingView>
+                        {/* Botão de excluir funcionário */}
+                        <TouchableOpacity onPress={() => { editar === true ? salvar() : excluir() }}>
+                            <View style={{ alignSelf: 'center', marginTop: 10 }}>
+                                <Text style={{fontSize: 16, color: colors.escuro, fontFamily: fonts.bold }}>{editar === true ? "SALVAR" : "EXCLUIR FUNCIONÁRIO"}</Text>
+                            </View>
+                        </TouchableOpacity>
+
+
+                    </KeyboardAvoidingView>
 
 
 
-                <View style={{ position: 'absolute', top: 20, right: 20 }}>
-                    <TouchableOpacity onPress={() => setEditar(!editar)}>
-                        {editar === true
-                            ?
-                            <Text style={{fontWeight: 'bold', fontSize: 18}}>Desfazer</Text>
-                            :
-                            <MaterialIcons name="edit" size={35} color="black" />
-                        }
-                    </TouchableOpacity>
+                    {/* Botão de editar/desfazer */}
+                    <View style={{ position: 'absolute', top: 20, right: 20 }}>
+                        <TouchableOpacity onPress={() => setEditar(!editar)}>
+                            {editar === true
+                                ?
+                                <Text style={{ fontFamily: fonts.bold, fontSize: 18 }}>Desfazer</Text>
+                                :
+                                <MaterialIcons name="edit" size={35} color="black" />
+                            }
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
-
-                {/* {console.log("1 : " + funcionario.id)}
-                {console.log("2 : " + funcionario.name)}
-                {console.log("3 : " + funcionario.bornDate)}
-                {console.log("4 : " + funcionario.salary)}
-                {console.log("5 : " + funcionario.position)} */}
-
-
-            </View>
-        </Pressable>
+            </Pressable>
+        </ScrollView>
     )
 }
 

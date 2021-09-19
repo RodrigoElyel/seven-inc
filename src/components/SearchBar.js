@@ -10,6 +10,7 @@ import { DadosContext } from '../DadosContext'
 
 // ICONS
 import { FontAwesome } from '@expo/vector-icons';
+import fonts from '../config/fonts';
 
 const SearchBar = ({ title, value, setValue }) => {
 
@@ -66,7 +67,7 @@ export default SearchBar
 
 const styles = StyleSheet.create({
     containerBusca: {
-        height: "5%",
+        height: 40,
         width: "90%",
         marginVertical: 30,
         flexDirection: 'row',
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
         height: "80%",
         width: "90%",
         // marginLeft: 20,
-        fontSize: 18
+        // fontSize: 18,
+        fontFamily: fonts.titulo
     }
 })

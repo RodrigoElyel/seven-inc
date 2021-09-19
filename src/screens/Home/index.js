@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import Constants from 'expo-constants'
 
 
 // COMPONENTS
@@ -36,15 +37,17 @@ const index = ({ navigation }) => {
 
     return (
 
-        <Screen >
+        <View style={styles.screen}>
             <View style={styles.container}>
-
+                
+                {/* Camponente de busca */}
                 <SearchBar
                     title="Buscar ID"
                     setValue={setFiltrados}
 
                 />
 
+                {/* Exibição da lista com um componente Card */}
                 <ScrollView >
                     {filtrados.map((item) =>
 
@@ -58,13 +61,15 @@ const index = ({ navigation }) => {
                 </ScrollView>
 
             </View>
+
+            {/* Botão de adição de funcionários */}
             <FAB
                 style={styles.fab}
                 icon="plus"
                 color="white"
                 onPress={() => navigation.navigate('NewEmployee')}
             />
-        </Screen>
+        </View>
     )
 }
 
@@ -114,5 +119,14 @@ const styles = StyleSheet.create({
         width: "80%",
         marginLeft: 20,
         fontSize: 18
+    },
+    screen: {
+        //  paddingLeft: 50,
+        flex: 1,
+        // paddingTop: Constants.statusBarHeight,
+        backgroundColor: colors.white
+    },
+    view: {
+        flex: 1
     }
 })

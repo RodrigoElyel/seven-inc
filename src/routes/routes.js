@@ -10,6 +10,7 @@ import NewEmployee from '../screens/NewEmployee'
 
 // CONFIG
 import colors from '../config/colors';
+import fonts from '../config/fonts';
 
 
 const Stack = createStackNavigator();
@@ -22,14 +23,17 @@ const MainScreen = () => {
             screenOptions={{
                 headerShown: true,
                 headerTintColor: colors.branco,
-                headerStyle: {backgroundColor: colors.azulEscuro}
-                
+                headerStyle: { backgroundColor: colors.azulEscuro },
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                    fontFamily: fonts.titulo,
+                }
             }}
         >
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Details" component={Details} />
             <Stack.Screen name="NewEmployee" component={NewEmployee} />
-            
+
         </Stack.Navigator>
     )
 }

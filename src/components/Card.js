@@ -13,6 +13,7 @@ import colors from '../config/colors';
 // IMPORT ASSETS
 import { Asset } from 'expo-asset';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import fonts from '../config/fonts';
 
 const Card = ({ objeto }) => {
 
@@ -33,15 +34,15 @@ const Card = ({ objeto }) => {
                         uri: objeto.image
                     }}
                 />
-                <Text>{'ID: ' + objeto.id}</Text>
+                <Text style={{fontFamily: fonts.texto}}>{'ID: ' + objeto.id}</Text>
 
             </View>
 
             {/* parte do meio do card */}
             <View style={{ width: '60%', alignItems: 'center' }}>
 
-                <Text style={{ fontWeight: "bold" }}>{objeto.name}</Text>
-                <Text style={{ alignSelf: 'center' }}>{objeto.position}</Text>
+                <Text style={{ fontFamily: fonts.bold, fontSize: 12 }}>{objeto.name}</Text>
+                <Text style={{ alignSelf: 'center', fontFamily: fonts.texto, fontSize: 12 }}>{objeto.position}</Text>
 
             </View>
 

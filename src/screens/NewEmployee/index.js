@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Pressable, Keyboard, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Keyboard, KeyboardAvoidingView, ScrollView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 // COMPONENTS
@@ -7,6 +7,7 @@ import ContainerInfo from '../../components/ContainerInfo'
 
 // CONFIG
 import colors from '../../config/colors'
+import fonts from '../../config/fonts'
 
 // ICONS
 import { MaterialIcons } from '@expo/vector-icons';
@@ -58,74 +59,74 @@ const index = ({ navigation }) => {
 
 
     return (
-        <Pressable style={{ height: "100%" }} onPress={Keyboard.dismiss}>
+        <ScrollView style={{backgroundColor: colors.cinza}}>
 
-            <View style={styles.container}>
+            <Pressable style={{ height: "100%" }} onPress={Keyboard.dismiss}>
 
-                <KeyboardAvoidingView style={styles.containerInfo} behavior="position" enabled>
+                <View style={styles.container}>
 
-                    <Image
-                        resizeMode="contain"
-                        style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center' }}
-                        source={{
-                            uri: imageUri
-                        }}
-                    />
-
-                    <ContainerInfo
-                        mask={null}
-                        edit={true}
-                        title="Name"
-                        value={name}
-                        setValue={setName}
-
-                    />
-
-                    <ContainerInfo
-                        mask="data"
-                        edit={true}
-                        title="Nascimento"
-                        value={bornDate}
-                        setValue={setBornDate}
-                        keyboard="numeric"
-                    />
-                    <ContainerInfo
-                        mask="dinheiro"
-                        edit={true}
-                        title="Salário"
-                        value={salary.toString()}
-                        setValue={setSalary}
-                        keyboard="numeric"
-                    />
-
-                    <ContainerInfo
-                        mask={null}
-                        edit={true}
-                        title="Cargo"
-                        value={position}
-                        setValue={setPosition}
-                    />
+                    <KeyboardAvoidingView style={styles.containerInfo} behavior="position" enabled>
 
 
-                    <TouchableOpacity onPress={() => salvar()}>
-                        <View style={{ alignSelf: 'center', marginTop: 40 }}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 16, color: colors.escuro }}>CADASTRAR FUNCIONÁRIO</Text>
-                        </View>
-                    </TouchableOpacity>
+                        {/* Campo da Imagem */}
+                        <Image
+                            resizeMode="contain"
+                            style={{ height: 250, width: 250, marginHorizontal: 20, alignSelf: 'center' }}
+                            source={{
+                                uri: imageUri
+                            }}
+                        />
 
 
-                </KeyboardAvoidingView>
+                        {/* Componente que faz a exibições/edições das informações */}
+                        <ContainerInfo
+                            mask={null}
+                            edit={true}
+                            title="Nome"
+                            value={name}
+                            setValue={setName}
+
+                        />
+
+                        <ContainerInfo
+                            mask="data"
+                            edit={true}
+                            title="Nascimento"
+                            value={bornDate}
+                            setValue={setBornDate}
+                            keyboard="numeric"
+                        />
+                        <ContainerInfo
+                            mask="dinheiro"
+                            edit={true}
+                            title="Salário"
+                            value={salary.toString()}
+                            setValue={setSalary}
+                            keyboard="numeric"
+                        />
+
+                        <ContainerInfo
+                            mask={null}
+                            edit={true}
+                            title="Cargo"
+                            value={position}
+                            setValue={setPosition}
+                        />
 
 
-                {/* {console.log("1 : " + funcionario.id)}
-                {console.log("2 : " + funcionario.name)}
-                {console.log("3 : " + funcionario.bornDate)}
-                {console.log("4 : " + funcionario.salary)}
-                {console.log("5 : " + funcionario.position)} */}
+                        {/* Botão para cadastrar funcionário */}
+                        <TouchableOpacity onPress={() => salvar()}>
+                            <View style={{ alignSelf: 'center', marginTop: 10 }}>
+                                <Text style={{ fontFamily: fonts.bold, fontSize: 16, color: colors.escuro }}>CADASTRAR FUNCIONÁRIO</Text>
+                            </View>
+                        </TouchableOpacity>
 
 
-            </View>
-        </Pressable>
+                    </KeyboardAvoidingView>
+
+                </View>
+            </Pressable>
+        </ScrollView>
     )
 }
 

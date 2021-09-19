@@ -15,11 +15,24 @@ import { Asset } from 'expo-asset';
 // DADOS CONTEXT
 import { DadosContext } from './src/DadosContext';
 
+// Fontes
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts, Montserrat_400Regular, Montserrat_100Thin_Italic,
+  Montserrat_600SemiBold,
+  Montserrat_500Medium,
+  Montserrat_300Light,
+  Montserrat_700Bold,
+  Montserrat_100Thin
+} from '@expo-google-fonts/montserrat'
+
 
 
 
 export default function App() {
 
+
+  // LISTA DE FUNCIONÁRIOS (Foi adicionado um campo chamado imagem, por questões estilização)
   const list = [
     {
       id: 1,
@@ -91,11 +104,29 @@ export default function App() {
 
   const [lista, setLista] = React.useState(list)
 
+  let [fontsLoaded] = useFonts({
+    Montserrat_400Regular,
+    Montserrat_600SemiBold,
+    Montserrat_100Thin_Italic,
+    Montserrat_500Medium,
+    Montserrat_300Light,
+    Montserrat_700Bold,
+    Montserrat_100Thin
+  })
+
+  if (!fontsLoaded) {
+    return <AppLoading />
+  }
+
   return (
+
+
     <DadosContext.Provider value={{ lista, setLista }}>
+
       <NavigationContainer>
         <MainScreen />
       </NavigationContainer>
+
     </DadosContext.Provider>
 
   );

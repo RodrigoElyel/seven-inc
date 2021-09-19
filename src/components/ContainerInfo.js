@@ -7,6 +7,7 @@ import { TextInputMask } from 'react-native-masked-text'
 
 // CONFIG
 import colors from '../config/colors'
+import fonts from '../config/fonts'
 
 
 const ContainerInfo = ({ title, value, setValue, edit, keyboard, mask }) => {
@@ -23,7 +24,7 @@ const ContainerInfo = ({ title, value, setValue, edit, keyboard, mask }) => {
                 ?
                 <>
                     <View >
-                        <Text style={{ fontWeight: 'bold', width: 80 }}>{title}</Text>
+                        <Text style={{ fontFamily: fonts.bold, fontSize: 12, width: 80 }}>{title}</Text>
                     </View>
                     {mask === null &&
                         <TextInput
@@ -43,7 +44,7 @@ const ContainerInfo = ({ title, value, setValue, edit, keyboard, mask }) => {
                             value={data}
                             placeholder="Digite a nova informação"
                             placeholderTextColor={colors.escuro}
-                            onChangeText={valor => {setData(valor); setValue(valor)}}
+                            onChangeText={valor => { setData(valor); setValue(valor) }}
                             keyboardType={keyboard}
                         />
                     }
@@ -62,7 +63,7 @@ const ContainerInfo = ({ title, value, setValue, edit, keyboard, mask }) => {
                             value={valor}
                             placeholder="Digite a nova informação"
                             placeholderTextColor={colors.escuro}
-                            onChangeText={valor => {setValor(valor); setValue(valor)}}
+                            onChangeText={valor => { setValor(valor); setValue(valor) }}
                             keyboardType={keyboard}
                         />
                     }
@@ -71,10 +72,13 @@ const ContainerInfo = ({ title, value, setValue, edit, keyboard, mask }) => {
                 :
                 <>
                     <View >
-                        <Text style={{ fontWeight: 'bold', width: 80 }}>{title}</Text>
+                        <Text style={{width: 80, fontFamily: fonts.bold, fontSize: 12 }}>{title}</Text>
                     </View>
                     <View style={styles.inputText}>
-                        <Text>{value}</Text>
+                        <Text style={{
+                            fontSize: 12,
+                            fontFamily: fonts.Montserrat_500Medium
+                        }}>{value}</Text>
                     </View>
                 </>
             }
@@ -101,6 +105,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: "70%",
         width: "50%",
-        fontSize: 15
+        fontSize: 12,
+        fontFamily: fonts.Montserrat_500Medium
     }
 })

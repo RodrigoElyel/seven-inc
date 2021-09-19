@@ -2,6 +2,9 @@
 
 Esse projeto se trata de uma aplicação focada no gerenciamento de funcionários.
 
+# Vídeo de demonstração do APP
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+
 # Designer
 [Verificar o projeto Figma](https://www.figma.com/proto/7H8soJtgWjsZ6hKsiehb2C/My-Employees?node-id=0%3A1&scaling=scale-down&page-id=0%3A1)
 
